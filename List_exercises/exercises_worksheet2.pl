@@ -38,39 +38,18 @@ num_occurrences(El, [_|T], N) :-	% Recursive case. Number of occurrances of elem
 	num_occurrences(El, T, N).		% the number of occurrences of element El
 
 % Make a procedure sum(L, Res) such that Res is the sum of integers in list L. L can contain non-integer structures.
-sum([], 0).			% Base case: sum of integers in empty list is always equal to 0.
-sum([I|T], N) :-	% Recursive case: If head of list is an integer, The sum of integers in list is equal to head of list plus the sum of integers in tail of list.
-	integer(I),
-	sum(T, N1),
-	N is I + N1.
-
-sum([_|T], N) :-	% Recursive case: sum of integers in list where head is not an integer is the sum of elements in tail of list.
-	sum(T, N).
-
 
 % Make a procedure is_list(L) that checks if L is a list. 
 % We don't consider [a,b,c|d] a list, because it does not end with an empty list [].
-is_list([]).		% base case: an empty list is a list.
-is_list([_|T]) :- 	% Recursive case: check if tail is a list.
-	is_list(T).
 
 % Make a procedure is_palindrome(L) that checks if list L is a palindrome.
-palindrome(L) :-
-	reverse(L, L).	% A list is a palindrome if the reversed list is the same.
 
 % The reversed list of an empty list is an empty list.
-reverse([], []).
 
 % // Auxilliary Predicates //
 
 % Reverse a list
-reverse([H|T], Rev) :-
-	reverse(T, Rev_T),			% Reverse tail of list
-	concat(Rev_T, [H], Rev).	% Concatenate reversed tail to head (add head to end).
 
 % Concatenating L to empty list yield L.
-concat([], L, L).
-concat([H|T], L, [H|T1]) :-	% Keep head of dest and...
-	concat(T, L, T1).		% Concatenate tail L to end of T.
 
 % //
