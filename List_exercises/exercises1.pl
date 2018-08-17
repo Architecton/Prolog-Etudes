@@ -9,12 +9,14 @@ add_last(El, [H|T], [H|T1]) :-	% Recursive case: keep head and add element to ta
 	add_last(El, T, T1).
 
 % Make a predicate nth that returns the nth element of the list.
+% *
 nth([El|_], 1, El).		% Base case: accessing the first element in the list.
 nth([_|T], N, El) :-	% Recursive case: accessing the (N-1)th element in the tail of the list.
 	N1 is N-1,
 	nth(T, N1, El).
 
-% Make a predicate sublist(SubL, L) which returns true if SubL is a sublist of L.
+% Make a predicate sublist(SubL, L) which is true if SubL is a sublist of L.
+% *
 sublist([], _). 			% An empty list is a sublist of any list.
 sublist([H|T], [H|T1]) :-	% If heads match, check remainder of of sublist candidate against tail of L.
 	remainder(T, T1).
@@ -33,6 +35,7 @@ split([H|T], H, T).
 add_start(El, L, [El|L]).
 
 % Make a predicate right_element which finds the right element of element El int the list L.
+% *
 right_element(El, [El, D|_], D). % Base case: element El is the head - take element right of head.
 right_element(El, [_|T], D) :-	 % Recursive case: check if element El is found in tail of list.
 	right_element(El, T, D).
@@ -40,7 +43,9 @@ right_element(El, [_|T], D) :-	 % Recursive case: check if element El is found i
 % Make a predicate first(L, El) which finds the first element of list L.
 first([El|_], El).
 
-% Make a predicate delete(El, L, L1) which deletes element El from list L.
+% Make a predicate delete(El, L, L1) which deletes one occurence of 
+% element El from list L.
+% *
 delete(_, [], []).
 delete(El, [El|T], T).
 delete(El, [H|T], [H|T1]) :-

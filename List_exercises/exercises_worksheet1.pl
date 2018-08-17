@@ -4,7 +4,7 @@
 
 % Make a predicate nth that returns the nth element of the list.
 
-% Make a predicate sublist(SubL, L) which returns true if SubL is a sublist of L.
+% Make a predicate sublist(SubL, L) which is true if SubL is a sublist of L.
 
 % Make a predicate split(L, H, T) so that H is the head of list L and T is the tail of list L.
 
