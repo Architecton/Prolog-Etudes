@@ -74,3 +74,30 @@ concat([H|T], L, [H|T1]) :-	% Keep head of dest and...
 	concat(T, L, T1).		% Concatenate tail L to end of T.
 
 % //
+
+% Make a predicate circshiftL(L, N) which circularly shifts list L N spots to the left.
+
+% Make a predicate circshiftR(L, N) which circularly shifts list L N spots to the right.
+
+% Make a predicate max(L, El), whcih finds the largest element in list L.
+
+% Make a predicate min(L, EL), which finds the smallest element in list L.
+
+% Make a predicate subset(SubS, S) which checks if SubS is a subset of the set S.
+
+% Make a predicate set(S) which is true if S is a set.
+
+% Make a predicate set_diff(S1, S2, S3) so that S3 is the difference of sets S1 and S2.
+
+% Make a predicate equal(S1, S2) which checks if sets S1 and S2 are equal.
+
+% Make a predicate set_pow(S, R) which gets the power of set S.
+
+% Make a predicate that finds the first element in a list with a given property defined by a unary predicate.
+
+% Make a predicate that finds from a list those elements whose indices are given by a separate list. The indices list can be
+% sorted or unsorted.
+
+% Make a predicate convert_Nums(Nums, R) which converts a list of digits to a number by concatenating them.
+
+% Make a predicate that checks if a list contains a sequence of integers such that every next integer is the sum of all the previous integers in the list.
