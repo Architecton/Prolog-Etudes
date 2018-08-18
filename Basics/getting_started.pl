@@ -63,7 +63,7 @@ likes(Woman, Man) :-
 
 plays(boris, Instrument) :-
 	plays(mojca, Instrument),
-	plays(sonja, instrument),
+	plays(sonja, Instrument),
 	instrument(Instrument).
 
 % Is there anyone who plays every instrument?

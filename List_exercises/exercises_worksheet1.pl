@@ -10,12 +10,11 @@
 
 % Make a predicate add_start(El, L, L1) which adds element El to list L.
 
-% Make a predicate right_element which finds the right element of element El int the list L.
+% Make a predicate right_element which finds the right element of element El in the list L.
 
 % Make a predicate first(L, El) which finds the first element of list L.
 
-% Make a predicate delete(El, L, L1) which deletes element El from list L.
-
+% *Make a predicate delete(El, L, L1) which deletes element the first occurence of El from list L.
 
 % The recursive definition of a list in Prolog:
 % 1. A list can be empty.

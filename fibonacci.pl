@@ -7,3 +7,10 @@ fibonacci(N, Res) :-	% Recursive case: the next fibonacci term is the sum of the
 	fibonacci(N1, Res1),
 	fibonacci(N2, Res2),
 	Res is Res1 + Res2.
+
+
+% Make a predicate fibonacci terms that maps a list of integers to list of fibonacci terms with integers as the indices.
+fibonacci_terms([], []).			% Base case: empty list
+fibonacci_terms([I|T], [I1|T1]) :-	% Recursive case: make head I-th fibonacci term and recur for tail.
+	fibonacci(I, I1),
+	fibonacci_terms(T, T1).
