@@ -222,3 +222,17 @@ intersection([_|T], S2, S3) :-		% Recursive case: For situations when H is not c
 
 
 % Make a predicate symmetric_diff(S1, S2, S3) so that S3 is the symmetric difference of S1 and S2.
+symmetric_diff([], S, S).				% Base case: The symmetric difference of an empty set and any set S is the set S.
+
+symmetric_diff([H|T], S2, [H|T1]) :-	% Recursive case: Add head of S1 to symmetric difference if...
+	set([H|T]),							% ...S1 is a set, and...
+	set(S2),							% ...S2 does not contain element H, and...
+	not(contains(H, S2)),				% ... H is not in S2
+	symmetric_diff(T, S2, T1).			% ... T1 is the symmetric difference of tail of S1 and S2.
+
+symmetric_diff([H|T], S2, S3) :-		% Recursive case: For situations when H is contained in both set and is therefore not an element of the result.
+	set(T),								% T is a set.
+	set(S2),							% S2 is a set.
+	contains(H, S2),					% H is also contained in S2,
+	delete_one(H, S2, I),				% I is S2 with H deleted,
+	symmetric_diff(T, I, S3).			% S3 is symmetric difference of tail of S1 and S2 with all occurences of H removed.
