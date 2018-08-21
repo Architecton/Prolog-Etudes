@@ -18,7 +18,7 @@ all_equal([X, X|T]) :-
 	all_equal([X|T]).
 
 % Make a predicate is_longer(L, L1) that checks if list L is longer than list L1.
-is_longer([_], []).			% Base case: any non-empty list is longer than an empty list.
+is_longer([_|_], []).		% Base case: any non-empty list is longer than an empty list.
 is_longer([_|T], [_|T1]) :-	% Recursive case: list L is longer than list L1 if tail of L is longer than tail of L1.
 	is_longer(T, T1).
 
@@ -58,12 +58,13 @@ is_list([_|T]) :- 	% Recursive case: check if tail is a list.
 palindrome(L) :-
 	reverse(L, L).	% A list is a palindrome if the reversed list is the same.
 
-% The reversed list of an empty list is an empty list.
-reverse([], []).
-
 % // Auxilliary Predicates //
 
 % Reverse a list
+
+% The reversed list of an empty list is an empty list.
+reverse([], []).
+
 reverse([H|T], Rev) :-
 	reverse(T, Rev_T),			% Reverse tail of list
 	concat(Rev_T, [H], Rev).	% Concatenate reversed tail to head (add head to end).
